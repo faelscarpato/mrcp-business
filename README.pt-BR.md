@@ -12,6 +12,7 @@
 [![npm downloads](https://img.shields.io/npm/dm/mrcp-engine.svg)](https://www.npmjs.com/package/mrcp-engine)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
+[![CI](https://github.com/faelscarpato/mrcp-engine/actions/workflows/ci.yml/badge.svg)](https://github.com/faelscarpato/mrcp-engine/actions/workflows/ci.yml)
 [![MCP Compatible](https://img.shields.io/badge/MCP-compatible-8A2BE2)](https://modelcontextprotocol.io)
 
 [Início Rápido](#-início-rápido-30-segundos) · [Por que MRCP](#-por-que-mrcp-engine) · [Ferramentas](#-catálogo-de-ferramentas) · [Demo ao Vivo](#-instância-ao-vivo) · [Como Contribuir](CONTRIBUTING.md)
@@ -159,11 +160,12 @@ O MRCP não substitui o raciocínio do seu LLM — ele elimina a parte _cara e p
 <details>
 <summary><b>4. 🌐 Busca e Extração Web</b> — clique para expandir</summary>
 
-| Ferramenta              | Endpoint                                 | O que faz                                               |
-| ----------------------- | ---------------------------------------- | ------------------------------------------------------- |
-| `mrcp_web_search`       | `GET /api/web-search?q=<query>`          | Busca rápida na web                                     |
-| `mrcp_web_scrape`       | `GET /api/scrape?url=<url>`              | Extração de texto limpo, sem anúncios/navegação/scripts |
-| `mrcp_web_smart_search` | `GET /api/smart-search?q=<query>&topN=2` | Busca + scraping ranqueado dos top N resultados         |
+| Ferramenta              | Endpoint                                 | O que faz                                                                                                                                                                                            |
+| ----------------------- | ---------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `mrcp_web_search`       | `GET /api/web-search?q=<query>`          | Busca rápida na web                                                                                                                                                                                  |
+| `mrcp_web_scrape`       | `GET /api/scrape?url=<url>`              | Extração de texto limpo, sem anúncios/navegação/scripts                                                                                                                                              |
+| `mrcp_web_smart_search` | `GET /api/smart-search?q=<query>&topN=2` | Busca + scraping ranqueado dos top N resultados                                                                                                                                                      |
+| `mrcp_clone_page`       | `GET/POST /api/clone?url=<url>`          | **Motor PageCloner Pro:** Engenharia reversa completa de páginas em tokens de design, componentes, árvore de layout, heurística de propósito, necessidades de completação e prompt ultra-fiel para IA |
 
 </details>
 
@@ -210,9 +212,11 @@ curl "https://mrcp-engine.vercel.app/api/analyze?repo=https://github.com/sua-org
 | `/api/security-audit?repo=<url>`           | `GET`  | Auditoria de segurança e licenças                     |
 | `/api/architecture-drift?repo=<url>`       | `GET`  | Detecção de desvio arquitetural                       |
 | `/api/test-gap-analysis?repo=<url>`        | `GET`  | Detecção de lacunas de teste e stubs                  |
-| `/api/context-pack?repo=<url>&task=<desc>` | `GET`  | Pacote de contexto fatiado para LLMs                  |
-| `/api/full-analysis`                       | `GET`  | Suíte diagnóstica completa (13 ferramentas)           |
-| `/api/mcp`                                 | `POST` | Endpoint central MCP (JSON-RPC 2.0)                   |
+| `/api/context-pack?repo=<url>&task=<desc>` | `GET`      | Pacote de contexto fatiado para LLMs                                        |
+| `/api/clone?url=<url>`                     | `GET/POST` | **PageCloner Pro:** Tokens de design, componentes, layout e prompt de IA     |
+| `/api/page-prompt?url=<url>`               | `GET`      | Atalho direto com prompt Markdown para reconstrução de interface             |
+| `/api/full-analysis`                       | `GET`      | Suíte diagnóstica completa (13 ferramentas)                                 |
+| `/api/mcp`                                 | `POST`     | Endpoint central MCP (JSON-RPC 2.0)                                         |
 
 </details>
 
