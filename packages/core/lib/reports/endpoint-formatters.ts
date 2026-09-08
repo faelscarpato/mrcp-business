@@ -137,6 +137,10 @@ export function formatEndpointToMarkdown(
   )
     return formatDocumentAnalysis(header, data.document_analysis || data);
 
+  if (endpointName === "page_cloner_pro" || data.aiPrompt) {
+    return [header, data.aiPrompt].join("\n");
+  }
+
   // Generic JSON dump in markdown block
   return [
     header,
