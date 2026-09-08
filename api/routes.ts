@@ -572,4 +572,60 @@ export const routeHandlers: Record<
     routeHandlers["/api/full-suite"](req, res),
   "/api/deep-analysis": async (req, res) =>
     routeHandlers["/api/full-suite"](req, res),
+
+  // 25. /api/clone & /api/page-cloner (PageCloner Pro Engine)
+  "/api/clone": async (req, res) => {
+    const targetUrl = req.query.url || req.body?.url;
+    const html = req.body?.html;
+    const format = req.query.format || req.body?.format || "full";
+    const customSkillsRepo =
+      req.query.skillsRepo ||
+      req.body?.customSkillsRepo ||
+      req.body?.skillsRepo;
+
+    if (!targetUrl && !html) {
+      return res.status(400).json({
+        status: "error",
+        error_code: "MISSING_TARGET",
+        message: "Forneça o parâmetro 'url' ou o corpo com 'html'.",
+      });
+    }
+
+    try {
+      const { clonePage } =
+        await import("../packages/core/lib/web/page-cloner.js");
+      const result = await clonePage({
+        url: targetUrl,
+        html,
+        format,
+        customSkillsRepo,
+      });
+
+      if (format === "prompt" || req.headers?.accept === "text/markdown") {
+        res.setHeader("Content-Type", "text/markdown; charset=utf-8");
+        return res.status(200).send(result.aiPrompt);
+      }
+
+      return sendFormattedResponse(
+        req,
+        res,
+        "page_cloner_pro",
+        targetUrl || "local-html",
+        result,
+      );
+    } catch (err: any) {
+      return res.status(500).json({
+        status: "error",
+        error_code: "CLONE_FAILED",
+        message: err.message,
+      });
+    }
+  },
+  "/api/page-cloner": async (req, res) => routeHandlers["/api/clone"](req, res),
+
+  // 26. /api/page-prompt (Atalho direto para prompt Markdown)
+  "/api/page-prompt": async (req, res) => {
+    req.query.format = "prompt";
+    return routeHandlers["/api/clone"](req, res);
+  },
 };

@@ -691,6 +691,40 @@ export async function executeTool(toolName: string, args: any): Promise<any> {
     };
   }
 
+  if (toolName === "mrcp_clone_page") {
+    try {
+      const { clonePage } =
+        await import("../packages/core/lib/web/page-cloner.js");
+      const result = await clonePage({
+        url: args.url,
+        html: args.html,
+        format: args.format || "full",
+        customSkillsRepo: args.customSkillsRepo,
+      });
+      saveEndpointOutput(toolName, args.url || "local-html", result);
+
+      if (args.format === "prompt") {
+        return {
+          content: [{ type: "text", text: result.aiPrompt }],
+        };
+      }
+
+      return {
+        content: [{ type: "text", text: JSON.stringify(result, null, 2) }],
+      };
+    } catch (error: any) {
+      return {
+        content: [
+          {
+            type: "text",
+            text: `Erro ao clonar página: ${error.message}`,
+          },
+        ],
+        isError: true,
+      };
+    }
+  }
+
   return {
     content: [{ type: "text", text: `Unknown tool: ${toolName}` }],
     isError: true,
