@@ -41,6 +41,11 @@ function setCachedResult(repoUrl, type, content) {
 function formatResponseForAi(endpoint, data) {
   if (!data) return "No data returned from analysis.";
 
+  // 0. Page Cloner Pro Engine
+  if (data.aiPrompt) {
+    return data.aiPrompt;
+  }
+
   // 1. Context Pruning Pack: Return compact prompt payload directly (maximum token efficiency)
   if (
     endpoint.includes("context-pack") ||
@@ -377,4 +382,5 @@ export const MCP_HANDLERS = {
       "documents",
     );
   },
+  mrcp_clone_page: (args) => handlePost("/api/clone", args),
 };

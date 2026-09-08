@@ -314,4 +314,32 @@ export const MCP_TOOLS = [
       required: ["repo"],
     },
   },
+  {
+    name: "mrcp_clone_page",
+    description:
+      "[Category: Web & Front-end Intelligence] Clones and reverse-engineers any web page into design tokens, semantic components, layout tree, purpose classification, completion needs, and an ultra-faithful AI prompt for code reconstruction.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        url: {
+          type: "string",
+          description: "Target website URL to clone and analyze",
+        },
+        html: {
+          type: "string",
+          description: "Optional raw HTML string instead of URL",
+        },
+        format: {
+          type: "string",
+          enum: ["json", "prompt", "full"],
+          default: "full",
+          description: "Output format: 'full', 'json', or 'prompt'",
+        },
+        customSkillsRepo: {
+          type: "string",
+          description: "Optional custom skills repository URL",
+        },
+      },
+    },
+  },
 ];
