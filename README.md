@@ -1,6 +1,6 @@
 <div align="center">
-
-<img src="resources/mrcp-icon.png" alt="MRCP Engine Logo" width="180"/>
+    
+<img width="2172" height="724" alt="banner" src="https://github.com/user-attachments/assets/34c2b626-1fbb-4024-b797-537642d413eb" />
 
 # 🧠 MRCP Engine
 
