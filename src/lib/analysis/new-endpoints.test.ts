@@ -14,7 +14,7 @@ import { generateSqlOrmContract } from "../../../packages/core/lib/analysis/sql-
 describe("MRCP Engine - Real Intelligence & Non-Applicable Handling", () => {
   const localRepo = ".";
 
-  it("1. mrcp_dependency_compatibility_resolver should query real NPM registry and resolve react latest (19.2.8)", async () => {
+  it("1. mrcp_dependency_compatibility_resolver should query real NPM registry and resolve react latest", async () => {
     const result = await resolveDependencyCompatibility({
       packageName: "react",
       targetVersion: "latest",
@@ -23,8 +23,14 @@ describe("MRCP Engine - Real Intelligence & Non-Applicable Handling", () => {
     expect(result).toBeDefined();
     expect(result.packageName).toBe("react");
     expect(result.isApplicable).toBe(true);
-    expect(result.resolvedVersion).toBe("19.2.8");
-    expect(result.safeInstallCommand).toBe("npm install react@19.2.8");
+    
+    // ✅ Validar que é uma versão válida no formato semver
+    expect(result.resolvedVersion).toMatch(/^\d+\.\d+\.\d+$/);
+    // ✅ Garantir que é React 19.x (compatível com expectativa original)
+    expect(result.resolvedVersion).toMatch(/^19\./);
+    
+    // ✅ Validar que o comando de instalação é seguro
+    expect(result.safeInstallCommand).toMatch(/npm install react@\d+\.\d+\.\d+/);
   });
 
   it("1b. mrcp_dependency_compatibility_resolver should return non-applicable for non-existent package", async () => {
