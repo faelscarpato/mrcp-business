@@ -70,6 +70,36 @@ const EXT_LANG: Record<string, string> = {
   pas: "Pascal",
   pp: "Pascal",
   inc: "Pascal",
+  // RPGLE
+  rpgle: "RPGLE",
+  rpg: "RPGLE",
+  sqlrpgle: "RPGLE",
+  // Pine Script
+  pine: "PineScript",
+  // JCL
+  jcl: "JCL",
+  job: "JCL",
+  // Power Query M
+  pq: "PowerQuery",
+  // DAX
+  dax: "DAX",
+  // T-SQL
+  tsql: "TSQL",
+  // Structured Text
+  st: "StructuredText",
+  scl: "StructuredText",
+  pou: "StructuredText",
+  exp: "StructuredText",
+  // MQL5
+  mq5: "MQL5",
+  mqh: "MQL5",
+  // OpenEdge ABL
+  p: "OpenEdgeABL",
+  w: "OpenEdgeABL",
+  i: "OpenEdgeABL",
+  // SAP ABAP & CDS
+  abap: "ABAP",
+  cds: "CDS",
 };
 
 export const SOURCE_EXTS = new Set([
@@ -131,6 +161,26 @@ export const SOURCE_EXTS = new Set([
   "pas",
   "pp",
   "inc",
+  "rpgle",
+  "rpg",
+  "sqlrpgle",
+  "pine",
+  "jcl",
+  "job",
+  "pq",
+  "dax",
+  "tsql",
+  "st",
+  "scl",
+  "pou",
+  "exp",
+  "mq5",
+  "mqh",
+  "p",
+  "w",
+  "i",
+  "abap",
+  "cds",
 ]);
 
 export const CONFIG_FILES = new Set([

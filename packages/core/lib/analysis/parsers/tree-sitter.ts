@@ -88,6 +88,34 @@ const FUNCTION_NODE_TYPES: Record<string, string[]> = {
     "trigger_definition",
     "anonymous_block",
   ],
+  rpgle: ["procedure_definition", "subroutine_definition"],
+  pine: ["function_declaration", "user_defined_function"],
+  jcl: ["job_statement", "exec_statement", "proc_statement"],
+  powerquery: ["function_expression", "section_member"],
+  powerquery_m: ["function_expression", "section_member"],
+  dax: ["measure_definition", "evaluate_statement"],
+  tsql: [
+    "create_procedure_statement",
+    "create_function_statement",
+    "create_trigger_statement",
+  ],
+  structured_text: [
+    "function_declaration",
+    "function_block_declaration",
+    "program_declaration",
+  ],
+  iec61131: [
+    "function_declaration",
+    "function_block_declaration",
+    "program_declaration",
+  ],
+  mql5: ["function_definition", "method_definition"],
+  openedge_abl: [
+    "procedure_definition",
+    "function_definition",
+    "method_definition",
+  ],
+  abl: ["procedure_definition", "function_definition", "method_definition"],
 };
 
 function getField(

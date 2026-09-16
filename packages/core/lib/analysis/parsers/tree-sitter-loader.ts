@@ -44,6 +44,18 @@ export const LANGUAGE_WASM_MAP: Record<string, string> = {
   plsql: "/tree-sitter/tree-sitter-oracle_plsql.wasm",
   oracle_plsql: "/tree-sitter/tree-sitter-oracle_plsql.wasm",
   oracle: "/tree-sitter/tree-sitter-oracle_plsql.wasm",
+  rpgle: "/tree-sitter/tree-sitter-rpgle.wasm",
+  pine: "/tree-sitter/tree-sitter-pine.wasm",
+  jcl: "/tree-sitter/tree-sitter-jcl.wasm",
+  powerquery: "/tree-sitter/tree-sitter-powerquery_m.wasm",
+  powerquery_m: "/tree-sitter/tree-sitter-powerquery_m.wasm",
+  dax: "/tree-sitter/tree-sitter-dax.wasm",
+  tsql: "/tree-sitter/tree-sitter-tsql.wasm",
+  structured_text: "/tree-sitter/tree-sitter-structured_text.wasm",
+  iec61131: "/tree-sitter/tree-sitter-structured_text.wasm",
+  mql5: "/tree-sitter/tree-sitter-mql5.wasm",
+  openedge_abl: "/tree-sitter/tree-sitter-openedge_abl.wasm",
+  abl: "/tree-sitter/tree-sitter-openedge_abl.wasm",
 };
 
 export const EXTENSION_TO_LANGUAGE_MAP: Record<string, string> = {
@@ -90,6 +102,24 @@ export const EXTENSION_TO_LANGUAGE_MAP: Record<string, string> = {
   trg: "oracle_plsql",
   fnc: "oracle_plsql",
   prc: "oracle_plsql",
+  rpgle: "rpgle",
+  rpg: "rpgle",
+  sqlrpgle: "rpgle",
+  pine: "pine",
+  jcl: "jcl",
+  job: "jcl",
+  pq: "powerquery",
+  dax: "dax",
+  tsql: "tsql",
+  st: "structured_text",
+  scl: "structured_text",
+  pou: "structured_text",
+  exp: "structured_text",
+  mq5: "mql5",
+  mqh: "mql5",
+  p: "openedge_abl",
+  w: "openedge_abl",
+  i: "openedge_abl",
 };
 
 let parser: TreeSitterParser | null = null;

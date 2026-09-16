@@ -34,6 +34,19 @@ const CALL_NODE_TYPES: Record<string, string[]> = {
   sap_abap: ["method_call_statement", "perform_statement", "call_statement"],
   plsql: ["function_call", "procedure_call", "sql_statement"],
   oracle_plsql: ["function_call", "procedure_call", "sql_statement"],
+  rpgle: ["call_expression", "call_statement", "exsr_statement"],
+  pine: ["call_expression"],
+  cobol: ["perform_statement", "call_statement"],
+  jcl: ["exec_statement"],
+  powerquery: ["invocation_expression"],
+  powerquery_m: ["invocation_expression"],
+  dax: ["function_call"],
+  tsql: ["execute_statement", "function_call"],
+  structured_text: ["invocation_statement", "function_call"],
+  iec61131: ["invocation_statement", "function_call"],
+  mql5: ["call_expression"],
+  openedge_abl: ["run_statement", "method_call"],
+  abl: ["run_statement", "method_call"],
 };
 
 function getField(

@@ -33,6 +33,14 @@ const IMPORT_NODE_TYPES: Record<string, string[]> = {
   abap: ["include_statement", "tables_statement", "type_pools_statement"],
   plsql: ["package_specification", "package_body_definition"],
   oracle_plsql: ["package_specification", "package_body_definition"],
+  rpgle: ["compiler_directive"],
+  jcl: ["exec_statement"],
+  tsql: ["execute_statement"],
+  structured_text: ["using_directive", "var_external"],
+  iec61131: ["using_directive", "var_external"],
+  mql5: ["preprocessor_include"],
+  openedge_abl: ["run_statement"],
+  abl: ["run_statement"],
 };
 
 function getField(
