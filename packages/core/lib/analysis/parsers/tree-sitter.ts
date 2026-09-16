@@ -296,7 +296,7 @@ export async function extractFunctionsWithTreeSitter(
 
   const fallback = () =>
     createSapFallbackFunctions(path, content, treeSitterLang);
-  
+
   if (!functionTypes || functionTypes.length === 0) {
     return { functions: fallback() };
   }
