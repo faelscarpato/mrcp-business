@@ -25,6 +25,57 @@ export interface TreeSitterParseResult {
   functions: ExtractedFunction[];
 }
 
+function createSapFallbackFunctions(
+  path: string,
+  content: string,
+  language: string,
+): ExtractedFunction[] {
+  const functions: ExtractedFunction[] = [];
+
+  const add = (name: string, index: number) => {
+    const line = content.slice(0, index).split(/\r?\n/).length;
+    functions.push({
+      name,
+      path,
+      language,
+      line,
+      complexity: 1,
+      lines: 1,
+    });
+  };
+
+  const normalized = language.toLowerCase();
+
+  if (normalized === "abap" || normalized === "sap_abap") {
+    const pattern = /^\s*METHOD\s+([A-Za-z_][A-Za-z0-9_]*)\s*\./gim;
+    for (const match of content.matchAll(pattern)) {
+      if (match.index !== undefined) {
+        add(match[1], match.index);
+      }
+    }
+    return functions;
+  }
+
+  if (normalized === "cds" || normalized === "sap_cds") {
+    const patterns = [
+      /^\s*DEFINE\s+(?:ROOT\s+)?VIEW(?:\s+ENTITY)?\s+([A-Za-z_][A-Za-z0-9_]*)/gim,
+      /^\s*DEFINE\s+(?:ROOT\s+)?VIEW\s+ENTITY\s+([A-Za-z_][A-Za-z0-9_]*)/gim,
+    ];
+
+    for (const pattern of patterns) {
+      for (const match of content.matchAll(pattern)) {
+        if (match.index !== undefined) {
+          add(match[1], match.index);
+        }
+      }
+    }
+
+    return functions;
+  }
+
+  return functions;
+}
+
 export function isTreeSitterAvailable(langOrExt: string): boolean {
   if (!langOrExt) return false;
   const key = langOrExt.toLowerCase();
@@ -243,26 +294,28 @@ export async function extractFunctionsWithTreeSitter(
     EXTENSION_TO_LANGUAGE_MAP[ext] || language.toLowerCase();
   const functionTypes = FUNCTION_NODE_TYPES[treeSitterLang];
 
+  const fallback = () => createSapFallbackFunctions(path, content, treeSitterLang);
+
   if (!functionTypes || functionTypes.length === 0) {
-    return { functions: [] };
+    return { functions: fallback() };
   }
 
   await initTreeSitter();
   const parser = getParser();
   if (!parser) {
-    return { functions: [] };
+    return { functions: fallback() };
   }
 
   const loadedLanguage = await loadLanguage(treeSitterLang);
   if (!loadedLanguage) {
-    return { functions: [] };
+    return { functions: fallback() };
   }
 
   try {
     parser.setLanguage(loadedLanguage);
     const tree = parser.parse(content);
     if (!tree) {
-      return { functions: [] };
+      return { functions: fallback() };
     }
 
     const functions = extractFunctions(
@@ -272,9 +325,12 @@ export async function extractFunctionsWithTreeSitter(
       path,
       treeSitterLang,
     );
-    return { functions };
+
+    return {
+      functions: functions.length > 0 ? functions : fallback(),
+    };
   } catch (error) {
     console.error(`Failed to parse ${path} with Tree-sitter:`, error);
-    return { functions: [] };
+    return { functions: fallback() };
   }
 }
