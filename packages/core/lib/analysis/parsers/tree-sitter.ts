@@ -294,8 +294,9 @@ export async function extractFunctionsWithTreeSitter(
     EXTENSION_TO_LANGUAGE_MAP[ext] || language.toLowerCase();
   const functionTypes = FUNCTION_NODE_TYPES[treeSitterLang];
 
-  const fallback = () => createSapFallbackFunctions(path, content, treeSitterLang);
-
+  const fallback = () =>
+    createSapFallbackFunctions(path, content, treeSitterLang);
+  
   if (!functionTypes || functionTypes.length === 0) {
     return { functions: fallback() };
   }
