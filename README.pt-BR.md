@@ -239,6 +239,20 @@ cd apps/vscode && npm run package   # → mrcp-vscode-2.6.0.vsix
 
 ---
 
+## 🌐 Extensão para Navegador (Google Chrome — Manifest V3)
+
+A pasta [`mrcp-chrome-extension/`](mrcp-chrome-extension/README.md) traz a extensão nativa para o painel lateral do Google Chrome com pacote pré-empacotado para instalação rápida:
+
+- **Abertura no Chrome Side Panel** — cockpit arquitetural na barra lateral sem interromper a navegação
+- **Auto-detecção em tempo real** — identifica abas do GitHub e GitLab instantaneamente com injeção do botão `⚡ MRCP Cockpit`
+- **Diagnósticos em 1 clique** — Health Score, Manutenibilidade SEI, God Modules, Gaps de Testes e Segredos
+- **AI Context Packer** — redução de até ~95% em tokens de LLM para colar no ChatGPT, Claude, Gemini ou Cursor
+- **Download do instalador** — [`mrcp-chrome-extension-v2.6.1.zip`](mrcp-chrome-extension/mrcp-chrome-extension-v2.6.1.zip)
+
+Consulte o [guia passo a passo de instalação](mrcp-chrome-extension/README.md).
+
+---
+
 ## 📡 Instância ao Vivo
 
 Já existe uma instância hospedada rodando — sem precisar configurar nada para testar:

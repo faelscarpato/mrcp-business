@@ -340,6 +340,20 @@ Configure scanner limits and features inside `.vscode/settings.json`:
 
 ---
 
+## 🌐 Browser Extension (Google Chrome — Manifest V3)
+
+The [`mrcp-chrome-extension/`](mrcp-chrome-extension/README.md) directory provides a native Chrome Side Panel extension with a pre-built installation package:
+
+- **Chrome Side Panel Cockpit:** Architectural diagnostics right inside the browser without interrupting page flow.
+- **Real-Time Tab Detection:** Detects open GitHub and GitLab repositories with auto-injected `⚡ MRCP Cockpit` quick-action button.
+- **One-Click Diagnostic Telemetry:** Health Score, SEI Maintainability Index, God Modules, Test Gaps, and Exposed Secrets.
+- **AI Context Packer:** Reduces LLM context payload by up to ~95% for instant pasting into ChatGPT, Claude, Gemini, or Cursor.
+- **Pre-packaged Installer:** Download [`mrcp-chrome-extension-v2.6.1.zip`](mrcp-chrome-extension/mrcp-chrome-extension-v2.6.1.zip) and load unpacked in `chrome://extensions`.
+
+See the [Step-by-step Chrome Extension Installation Guide](mrcp-chrome-extension/README.md).
+
+---
+
 ## 📡 Live Instance
 
 A hosted cloud instance is active for evaluation without local setup:
