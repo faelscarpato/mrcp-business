@@ -104,13 +104,3 @@ Por padrão, a extensão funciona imediatamente sem necessidade de chaves para r
 
 ---
 
-## 🔄 Código Fonte Completo e Testes
-
-Para desenvolvedores que desejam inspecionar o código-fonte da extensão, modificar comportamentos ou rodar os testes automatizados do motor:
-- O código-fonte integral encontra-se em: `dev_4 - OK-20260913T222854Z-1-001/mrcp-chrome-extension`
-- Suíte de testes unitários:
-  ```bash
-  cd "dev_4 - OK-20260913T222854Z-1-001/mrcp-chrome-extension"
-  npm test
-  # ou: npm run package (para regerar o zip)
-  ```
