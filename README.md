@@ -394,6 +394,5 @@ If MRCP Engine reduces your token expenditure or stabilizes your AI workflows, c
 
 ### ⭐ Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=faelscarpato/mrcp-engine&type=Date)](https://star-history.com/#faelscarpato/mrcp-engine&Date)
-
+[![Star History Chart](https://api.star-history.com/chart?repos=faelscarpato/mrcp-engine&type=date&legend=top-left)](https://www.star-history.com/?repos=faelscarpato%2Fmrcp-engine&type=date&legend=top-left)
 </div>
