@@ -1,7 +1,31 @@
+# Dependencies
 node_modules/
-.env
-dist/
-.DS_Store
-*.log
+.pnpm-store/
 
-.vercel
+# Local environment variables and secrets
+.env
+.env.local
+.env.*.local
+!.env.example
+
+# Build and deployment output
+dist/
+.vercel/
+
+# VS Code extension artifacts
+apps/vscode/out/
+apps/vscode/.vscode-test/
+
+# Generated diagnostics and reports
+reports/
+mrcp-analysis.json
+
+# OS and logs
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
