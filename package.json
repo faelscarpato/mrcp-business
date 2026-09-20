@@ -1,20 +1,20 @@
 {
-  "name": "mrcp-engine",
-  "version": "2.6.0",
-  "description": "Deterministic AST code-intelligence engine for AI agents — MCP server + REST API for architecture analysis, security audits, and doc generation.",
+  "name": "mrcp-business",
+  "version": "1.0.0",
+  "description": "MRCP-Business — Corporate Omni-Parser & Deterministic Engine. Local-First document intelligence for AI agents via MCP.",
   "keywords": [
     "mcp",
     "model-context-protocol",
     "ai-agents",
     "llm-tools",
-    "ast",
-    "code-analysis",
-    "tree-sitter",
-    "developer-tools",
+    "document-intelligence",
+    "local-first",
+    "finops",
     "typescript",
-    "openapi",
-    "static-analysis",
-    "code-intelligence"
+    "pdf-parser",
+    "resume-parser",
+    "dax-extractor",
+    "contract-audit"
   ],
   "homepage": "https://mrcp-engine.vercel.app",
   "bugs": {
@@ -43,13 +43,14 @@
     "build:dev": "vite build --mode development",
     "preview": "vite preview",
     "test": "vitest run",
-    "build:grammar": "node scripts/build-grammar.mjs",
+    "test:watch": "vitest watch",
+    "test:business": "vitest run --reporter=verbose packages/core/lib/business/__tests__/",
     "lint": "eslint .",
     "format": "prettier --write ."
   },
   "bin": {
     "mrcp": "bin/mrcp.js",
-    "mrcp-engine": "bin/mrcp.js"
+    "mrcp-business": "bin/mrcp.js"
   },
   "files": [
     "bin/",
@@ -59,23 +60,15 @@
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.30.0",
     "date-fns": "^4.1.0",
-    "tree-sitter-c": "^0.24.1",
-    "tree-sitter-cobol": "^0.0.1",
-    "tree-sitter-cpp": "^0.23.4",
-    "tree-sitter-go": "^0.25.0",
-    "tree-sitter-java": "^0.23.5",
-    "tree-sitter-javascript": "^0.25.0",
-    "tree-sitter-php": "^0.24.2",
-    "tree-sitter-python": "^0.25.0",
-    "tree-sitter-ruby": "^0.23.1",
-    "tree-sitter-rust": "^0.24.0",
-    "tree-sitter-typescript": "^0.23.2",
-    "web-tree-sitter": "^0.26.11",
+    "mammoth": "^1.8.0",
+    "pdf-parse": "^1.1.1",
+    "xlsx": "^0.18.5",
     "zod": "^3.24.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.32.0",
     "@types/node": "^22.16.5",
+    "@types/pdf-parse": "^1.1.4",
     "@vercel/node": "^5.9.5",
     "eslint": "^9.32.0",
     "eslint-config-prettier": "^10.1.1",
@@ -85,27 +78,10 @@
     "globals": "^15.15.0",
     "jsdom": "^30.0.1",
     "prettier": "^3.7.3",
-    "puppeteer": "^25.5.0",
     "tsx": "^4.23.12",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.56.1",
     "vite": "^8.0.16",
     "vitest": "^4.1.10"
-  },
-  "allowScripts": {
-    "esbuild": true,
-    "opencode-ai": true,
-    "puppeteer": true,
-    "tree-sitter-c": true,
-    "tree-sitter-cobol": true,
-    "tree-sitter-cpp": true,
-    "tree-sitter-go": true,
-    "tree-sitter-java": true,
-    "tree-sitter-javascript": true,
-    "tree-sitter-php": true,
-    "tree-sitter-python": true,
-    "tree-sitter-ruby": true,
-    "tree-sitter-rust": true,
-    "tree-sitter-typescript": true
   }
 }

@@ -628,4 +628,88 @@ export const routeHandlers: Record<
     req.query.format = "prompt";
     return routeHandlers["/api/clone"](req, res);
   },
+
+  // ─── MRCP-Business Routes ─────────────────────────────────────────────────
+
+  // 27. /api/business/parse-resume
+  "/api/business/parse-resume": async (req, res) => {
+    const filePath = req.query.file || req.body?.file_path;
+    if (!filePath)
+      return res
+        .status(400)
+        .json({ status: "error", error_code: "MISSING_FILE_PATH" });
+    const { parseResume } =
+      await import("../packages/core/lib/business/parse-resume.js");
+    try {
+      const result = await parseResume({ file_path: String(filePath) });
+      return sendFormattedResponse(
+        req,
+        res,
+        "mrcp_business_parse_resume",
+        String(filePath),
+        { status: "success", resume_contract: result },
+      );
+    } catch (err: any) {
+      return res.status(500).json({
+        status: "error",
+        error_code: "PARSE_FAILED",
+        message: err.message,
+      });
+    }
+  },
+
+  // 28. /api/business/extract-dax
+  "/api/business/extract-dax": async (req, res) => {
+    const filePath = req.query.file || req.body?.file_path;
+    if (!filePath)
+      return res
+        .status(400)
+        .json({ status: "error", error_code: "MISSING_FILE_PATH" });
+    const { extractDax } =
+      await import("../packages/core/lib/business/extract-dax.js");
+    try {
+      const result = await extractDax({ file_path: String(filePath) });
+      return sendFormattedResponse(
+        req,
+        res,
+        "mrcp_business_extract_dax",
+        String(filePath),
+        { status: "success", dax_contract: result },
+      );
+    } catch (err: any) {
+      return res.status(500).json({
+        status: "error",
+        error_code: "EXTRACTION_FAILED",
+        message: err.message,
+      });
+    }
+  },
+
+  // 29. /api/business/legal-audit
+  "/api/business/legal-audit": async (req, res) => {
+    const filePath = req.query.file || req.body?.file_path;
+    if (!filePath)
+      return res
+        .status(400)
+        .json({ status: "error", error_code: "MISSING_FILE_PATH" });
+    const { legalContractAudit } =
+      await import("../packages/core/lib/business/legal-contract-audit.js");
+    try {
+      const result = await legalContractAudit({ file_path: String(filePath) });
+      return sendFormattedResponse(
+        req,
+        res,
+        "mrcp_business_legal_contract_audit",
+        String(filePath),
+        { status: "success", legal_contract: result },
+      );
+    } catch (err: any) {
+      return res.status(500).json({
+        status: "error",
+        error_code: "AUDIT_FAILED",
+        message: err.message,
+      });
+    }
+  },
 };
+

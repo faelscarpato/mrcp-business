@@ -725,6 +725,37 @@ export async function executeTool(toolName: string, args: any): Promise<any> {
     }
   }
 
+  // ─── MRCP-Business Tools ──────────────────────────
+  if (toolName === "mrcp_business_parse_resume") {
+    const { executeParseResume } =
+      await import("../packages/core/lib/business/parse-resume.js");
+    const result = await executeParseResume(args);
+    if (!result.isError) {
+      saveEndpointOutput(toolName, String(args?.file_path || ""), JSON.parse(result.content[0].text));
+    }
+    return result;
+  }
+
+  if (toolName === "mrcp_business_extract_dax") {
+    const { executeExtractDax } =
+      await import("../packages/core/lib/business/extract-dax.js");
+    const result = await executeExtractDax(args);
+    if (!result.isError) {
+      saveEndpointOutput(toolName, String(args?.file_path || ""), JSON.parse(result.content[0].text));
+    }
+    return result;
+  }
+
+  if (toolName === "mrcp_business_legal_contract_audit") {
+    const { executeLegalContractAudit } =
+      await import("../packages/core/lib/business/legal-contract-audit.js");
+    const result = await executeLegalContractAudit(args);
+    if (!result.isError) {
+      saveEndpointOutput(toolName, String(args?.file_path || ""), JSON.parse(result.content[0].text));
+    }
+    return result;
+  }
+
   return {
     content: [{ type: "text", text: `Unknown tool: ${toolName}` }],
     isError: true,

@@ -1,0 +1,46 @@
+CONTRATO DE PRESTAÇÃO DE SERVIÇOS
+
+Contratante: Empresa Alpha Ltda.
+Contratada: Empresa Beta S.A.
+CNPJ: 12.345.678/0001-90
+
+Cláusula 1 - Do Objeto
+O presente contrato tem por objeto a prestação de serviços de consultoria em tecnologia da informação.
+
+Cláusula 2 - Do Prazo
+O prazo de vigência do presente contrato é de 12 (doze) meses, contados a partir da assinatura.
+
+Cláusula 3 - Do Valor e Pagamento
+O valor total do contrato é de R$ 120.000,00 (cento e vinte mil reais), pagos em parcelas mensais de R$ 10.000,00.
+
+Cláusula 4 - Das Obrigações do Contratante
+A contratante se compromete a fornecer acesso às instalações e sistemas necessários.
+
+Cláusula 5 - Das Obrigações da Contratada
+A contratada se compromete a entregar os serviços conforme cronograma aprovado.
+
+Cláusula 6 - Da Confidencialidade
+As partes se obrigam a manter sigilo sobre todas as informações trocadas durante a vigência do contrato.
+
+Cláusula 7 - Da Multa e Penalidade
+Multa: R$ 5.000,00 por dia de atraso na entrega dos serviços.
+Penalidade: suspensão do pagamento em caso de descumprimento das obrigações contratuais.
+
+Cláusula 8 - Da Rescisão
+Rescisão: O contrato poderá ser rescindido por qualquer das partes mediante aviso prévio de 30 dias.
+A rescisão antecipada sem justa causa implicará no pagamento de multa equivalente a 20% do valor restante.
+
+Cláusula 9 - Do Foro
+Fica eleito o foro da Comarca de São Paulo para dirimir quaisquer controvérsias.
+
+Cláusula 10 - Das Disposições Gerais
+Os casos omissos serão resolvidos de comum acordo entre as partes.
+
+São Paulo, 15 de Março de 2024.
+
+_____________________________
+Empresa Alpha Ltda.
+CPF: 987.654.321-00
+
+_____________________________
+Empresa Beta S.A.

@@ -1,0 +1,44 @@
+João Silva dos Santos
+Desenvolvedor Full-Stack Senior
+
+Email: joao.silva@email.com
+Telefone: (11) 99876-5432
+CPF: 123.456.789-09
+
+RESUMO PROFISSIONAL
+Desenvolvedor com 4.5 anos de experiência em desenvolvimento web.
+Especializado em TypeScript, React, Node.js e AWS.
+
+EXPERIÊNCIA PROFISSIONAL
+
+Senior Developer — TechCorp Brasil
+01/2021 - presente
+- Desenvolvimento de APIs REST com Node.js e TypeScript
+- Arquitetura de microserviços com Docker e Kubernetes
+- Deploy em AWS (EC2, S3, Lambda)
+
+Pleno Developer — StartupXYZ
+06/2019 - 12/2020
+- Frontend com React e Redux
+- Banco de dados PostgreSQL e MongoDB
+- CI/CD com GitHub Actions
+
+FORMAÇÃO ACADÊMICA
+
+Bacharelado em Ciência da Computação
+Universidade de São Paulo (USP)
+2015 - 2019
+
+HABILIDADES TÉCNICAS
+- JavaScript, TypeScript, Python
+- React, Node.js, Express, Next.js
+- PostgreSQL, MongoDB, Redis
+- Docker, Kubernetes, AWS
+- Git, GitHub Actions, CI/CD
+- SQL, GraphQL
+
+IDIOMAS
+- Português (Nativo)
+- Inglês (Avançado)
+
+Pretensão salarial: R$ 15.000,00

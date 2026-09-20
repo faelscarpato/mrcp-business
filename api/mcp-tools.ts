@@ -528,4 +528,54 @@ export const TOOLS = [
       },
     },
   },
+
+  // --- Category: MRCP-Business — Corporate Document Intelligence ---
+  {
+    name: "mrcp_business_parse_resume",
+    description:
+      "[Category: MRCP-Business / Triagem & RH] Deterministic Local-First resume parser. Extracts skills, experience years, education, and CPF detection from PDF/DOCX/TXT resumes. Returns a compact JSON micro-contract (50-600 tokens) with anonymized PII. Zero AI, 100% deterministic.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        file_path: {
+          type: "string",
+          description:
+            "Absolute or relative path to the resume file (PDF, DOCX, or TXT)",
+        },
+      },
+      required: ["file_path"],
+    },
+  },
+  {
+    name: "mrcp_business_extract_dax",
+    description:
+      "[Category: MRCP-Business / Financeira & BI] Deterministic Local-First spreadsheet analyzer. Extracts Excel formulas, DAX expressions, Power Query patterns, column headers, and numeric summaries from XLSX/CSV files. Returns a compact JSON micro-contract. Zero AI.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        file_path: {
+          type: "string",
+          description:
+            "Absolute or relative path to the spreadsheet file (XLSX, XLS, or CSV)",
+        },
+      },
+      required: ["file_path"],
+    },
+  },
+  {
+    name: "mrcp_business_legal_contract_audit",
+    description:
+      "[Category: MRCP-Business / Jurídica] Deterministic Local-First legal contract auditor. Extracts clauses, penalties, termination conditions, parties, CPF/CNPJ, and monetary values from PDF/DOCX contracts. Calculates Document Quality Index (DQI). Returns a compact JSON micro-contract. Zero AI.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        file_path: {
+          type: "string",
+          description:
+            "Absolute or relative path to the contract file (PDF or DOCX)",
+        },
+      },
+      required: ["file_path"],
+    },
+  },
 ];
